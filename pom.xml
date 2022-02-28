@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.banking</groupId>
 	<artifactId>rbi</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>rbi</name>
 	<description>banking </description>
 	<properties>

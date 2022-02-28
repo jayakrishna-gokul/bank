@@ -22,11 +22,12 @@ create table bank_details(
    foreign key (bank_address_id) references bank_address(id)
 );
 
-
-INSERT INTO bank_details(bank_name)
-VALUES ('HDFC'), ('ICICI'), ('CitiBank');
-
 INSERT INTO bank_address(address_line_1, city, state, zip, country)
 VALUES('ST.NO.77', 'HYDERABAD' , 'Telangana', '500070', 'INDIA'),
 ('ST.NO.78', 'HYDERABAD' , 'Telangana', '500071', 'INDIA'),
 ('ST.NO.79', 'HYDERABAD' , 'Telangana', '500072', 'INDIA');
+
+INSERT INTO bank_details(bank_name, bank_address_id)
+VALUES ('HDFC', '1'), ('ICICI','2'), ('CitiBank','3');
+
+

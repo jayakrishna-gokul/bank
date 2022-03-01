@@ -167,16 +167,15 @@ jobs:
     - name: Create and expose app
       id: deploy-and-expose
       uses: redhat-actions/oc-new-app@v1
-      - name: Login to Docker Hub
-          uses: docker/login-action@v1
-          with:
-            username: ${{ secrets.DOCKER_USERNAME }}
-            password: ${{ secrets.DOCKER_PASSWORD }}
       with:
-        app_name: ${{ env.APP_NAME }}
-        image: ${{ steps.push-image.outputs.registry-path }}
-        namespace: ${{ env.OPENSHIFT_NAMESPACE }}
-        port: ${{ env.APP_PORT }}
+        uses: docker/login-action@v1
+        with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+       app_name: ${{ env.APP_NAME }}
+       image: ${{ steps.push-image.outputs.registry-path }}
+       namespace: ${{ env.OPENSHIFT_NAMESPACE }}
+       port: ${{ env.APP_PORT }}
 
     - name: Print application URL
       env:

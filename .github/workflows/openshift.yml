@@ -50,7 +50,7 @@ env:
   IMAGE_REGISTRY_PASSWORD: ${{ secrets.IMAGE_REGISTRY_PASSWORD }}
 
   # 🖊️ EDIT to specify custom tags for the container image, or default tags will be generated below.
-  IMAGE_TAGS: ""
+  IMAGE_TAGS: 575703430fa2
 
 on:
   # https://docs.github.com/en/actions/reference/events-that-trigger-workflows
@@ -165,7 +165,7 @@ jobs:
     # https://github.com/redhat-actions/oc-new-app#readme
     - name: Create and expose app
       id: deploy-and-expose
-      uses: redhat-actions/oc-new-app@v1
+      uses: redhat-actions/oc-update-app@v1
       with:
         app_name: ${{ env.APP_NAME }}
         image: ${{ steps.push-image.outputs.registry-path }}

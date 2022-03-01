@@ -1,20 +1,20 @@
 version: '3'
 services:
   mysql:
-    image: mysql:8
+    image: quay.io/jayakrishna_gokul/mysql:8
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_USER=user
       - MYSQL_PASSWORD=root
       - MYSQL_DATABASE=rbi001
     ports:
-      - "3607:3306" #localshost on left, host port on right
+      - "3306:3306" #localshost on left, host port on right
   rbi01:
-    image: rbi01
+    image: quay.io/jayakrishna_gokul/rbi01
     ports:
       - "8080:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3607/rbi001?allowPublicKeyRetrieval=true&autoReconnect=true&useSSL=false
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/rbi001?allowPublicKeyRetrieval=true&autoReconnect=true&useSSL=false
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
     build:
